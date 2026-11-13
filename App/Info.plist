@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- ★ 这几条原来由 GENERATE_INFOPLIST_FILE 自动注入。
+       关掉它之后就得自己补齐 —— 少一个 CFBundleIdentifier,
+       安装时就是 "Missing bundle ID"(2026-09-01 实测踩到)。
+       **关掉一个便利,就继承了它全部的职责。** -->
+  <key>CFBundleDevelopmentRegion</key><string>$(DEVELOPMENT_LANGUAGE)</string>
+  <key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+  <key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+  <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+  <key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+  <key>CFBundleDisplayName</key><string>复盘镜</string>
+  <key>CFBundlePackageType</key><string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+  <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+  <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+  <key>UIRequiredDeviceCapabilities</key><array><string>arm64</string></array>
+
+  <!-- ★ 让 App 出现在系统分享单里(免费账号可用)。
+       Share Extension 需要 App Group 才能与主 App 共享数据,而 App Group 是付费项 ——
+       所以走这条:声明能接收图片,用户在券商 App 里「分享 → TradeMirror」直接打开主 App。 -->
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeName</key><string>交易截图</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Alternate</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>public.image</string>
+        <string>public.png</string>
+        <string>public.jpeg</string>
+      </array>
+    </dict>
+  </array>
+  <key>LSSupportsOpeningDocumentsInPlace</key><true/>
+  <key>UIFileSharingEnabled</key><false/>
+  <key>UILaunchScreen</key><dict/>
+  <key>UISupportedInterfaceOrientations</key>
+  <array><string>UIInterfaceOrientationPortrait</string></array>
+  <key>UIApplicationSceneManifest</key>
+  <dict><key>UIApplicationSupportsMultipleScenes</key><false/></dict>
+</dict>
+</plist>

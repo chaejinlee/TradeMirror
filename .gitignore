@@ -1,0 +1,16 @@
+.DS_Store
+/.build
+/Build
+/DerivedData
+*.xcuserstate
+xcuserdata/
+.developer_team
+__pycache__/
+.swiftpm/
+
+# Private: real brokerage screenshots (account details) — never commit
+Tests/ReviewEngineTests/Fixtures/*.png
+Tests/ReviewEngineTests/Fixtures/*.heic
+
+# Generated App Store pages embed a contact email — regenerate locally with branding/make_site.py
+/site/
